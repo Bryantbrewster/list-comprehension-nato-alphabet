@@ -1,0 +1,22 @@
+# dictionary comprehension allows us to create a new dictionary from the values in a list or dictionary
+# general structure (from a list):
+new_dict = {new_key: new_value for item in list}
+
+# creating a new dictionary from values in an existing dictionary:
+new_dict = {new_key: new_value for (key, value) in dict.items()}
+# you can use the 'if test' addition on the end of the comprehension, just like list comprehension
+
+# SAME AS WITH LIST COMPREHENSION, IF YOU WANT TO KEEP THE KEY THE SAME, 'NEW_KEY' AND 'ITEM'/'KEY' MUST
+# BE THE SAME (works with values too)
+
+
+# List example:
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Freddie']
+# generates a random test score for each of the students, and creates a dictionary with each student
+# and their scores
+student_scores = {student:random.randint(1,100) for student in names}
+
+# Dictionary example:
+# finds what students, contained in the previously created dictionary, got a score over 40 and creates
+# a new dictionary with just those students
+passed = {key:value for (key, value) in student_scores.items() if value > 40}
