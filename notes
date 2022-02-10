@@ -1,0 +1,49 @@
+# Original method to add 1 to each item in the listand create a new list
+numbers = [1, 2, 3]
+new_list = []
+for n in numbers:
+    add_1 = n + 1
+    new_list.append(add_1)
+    
+    
+# general structure of list comprehension method
+new_list = [new_item for item in list]
+
+list -> list that we will iterate through (numbers)
+item -> each item in the list we'll iterate through (n)
+new_item -> what we want each of the new items to be in the new list (n + 1)
+
+# Put it all together using the new structure
+numbers = [1, 2, 3]
+new_list = [n + 1 for n in numbers]
+
+
+# Also works with strings
+name = "Angela"
+new_list = [letter for letter in name]
+# This takes each individual letter in "Angela" and creates a list where each element is each individual letter
+result -> new_list = ['A', 'n', 'g', 'e', 'l', 'a']
+
+
+# Another example
+new_range = [i*2 for i in range(1, 5)]
+# goes through each number in the range (1, 2, 3, 4), excluding 5, and doubles them
+new_range = [2, 4, 6, 8]
+
+
+# Conditional list comprehension
+# adding in a test where it will only make the change if the item meets the condition
+# general structure:
+new_list = [new_item for item in list if test]
+
+# Conditional list comprehension example (we only want names with 4 or less letters in the new list)
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Freddie']
+short_names = [i for i in names if len(i) < 5]
+# if I want to keep the items the same, but just bring them over, the (new_item) and (item) must be
+# the same (in this case, they both must be i)
+
+# Conditional list comprehension, but just names with more than 4 letters, and make them full uppercase
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Freddie']
+upper_names = [i.upper() for i in names if len(i) > 4]
+
+
