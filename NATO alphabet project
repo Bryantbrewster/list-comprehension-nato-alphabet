@@ -1,0 +1,31 @@
+
+import pandas
+
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
+
+
+# Make sure to read the file in Pandas
+file = pandas.read_csv('./nato_phonetic_alphabet.csv')
+phonetic_df = pandas.DataFrame(file)
+
+
+#TODO 1. Create a dictionary in this format:
+{"A": "Alfa", "B": "Bravo"}
+
+# this iterates through each row in the data frame, and creates a dictionary containing
+# each row's letter: code as the inputs
+new_dict = {row.letter: row.code for (index,row) in phonetic_df.iterrows()}
+print(new_dict)
+
+
+#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+
+# asks the user what word to spell out, and then iterates through that word. When doing a
+# loop through a single word, it iterates through each individual letter. So this one
+# iterates through each letter, and then checks for that letter in the dictionary. If it
+# finds that letter in the dictionary, it takes the value associated with that letter and
+# puts it into the list. It loops through until finishing the word (and thus the new list)
+user_input = input('What word would you like spelled out?\n').upper()
+spelled_out = [new_dict[i] for i in user_input]
+print(spelled_out)
